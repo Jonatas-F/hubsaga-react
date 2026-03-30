@@ -1,0 +1,155 @@
+.kpi-card-component {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at top right, rgba(255, 92, 35, 0.12), transparent 40%);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.kpi-card-component::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), transparent 38%);
+  pointer-events: none;
+}
+
+.kpi-card-component:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 132, 72, 0.4);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+}
+
+.kpi-card-component:hover .kpi-card-top i {
+  transform: scale(1.08) rotate(10deg);
+  background: rgba(255, 122, 56, 0.16);
+  border-color: rgba(255, 132, 72, 0.4);
+}
+
+.kpi-card-component:focus-visible {
+  outline: 2px solid rgba(255, 132, 72, 0.9);
+  outline-offset: 4px;
+}
+
+.kpi-card-top,
+.kpi-card-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kpi-card-top small {
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.kpi-card-top i {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-style: normal;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.kpi-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.kpi-card-component h3 {
+  margin: 0 0 12px;
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.kpi-card-component strong {
+  display: inline-flex;
+  margin-bottom: 14px;
+  font-size: 0.98rem;
+  color: #ffffff;
+}
+
+.kpi-card-component p {
+  margin: 0;
+  max-width: 38ch;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.kpi-card-footer {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.kpi-card-component span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff8b55;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.kpi-card-component span::after {
+  content: '→';
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.kpi-card-component:hover span::after {
+  transform: translateX(4px);
+}
+
+.button-reset {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media (max-width: 820px) {
+  .kpi-card-component {
+    gap: 20px;
+    padding: 22px;
+    border-radius: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kpi-card-component,
+  .kpi-card-top i,
+  .kpi-card-component span::after {
+    transition: none;
+  }
+}
