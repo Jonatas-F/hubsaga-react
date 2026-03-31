@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import './styles/global.css'
+import './pages/modules/Module01/Module01.css'
+import './pages/kpis/NPS/NPS.css'
 
 import Topbar from './components/Topbar/Topbar'
 import Home from './pages/Home/Home'

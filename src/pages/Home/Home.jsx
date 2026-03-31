@@ -1,5 +1,7 @@
 import React from 'react'
 import './Home.css'
+import '../../components/ModuleCard/ModuleCard.css'
+import '../../components/KpiCard/KpiCard.css'
 
 import Hero from '../../components/Hero/Hero'
 import ModuleCard from '../../components/ModuleCard/ModuleCard'
