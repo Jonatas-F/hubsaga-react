@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+
 import Hero from '../../components/Hero/Hero'
 import ModuleCard from '../../components/ModuleCard/ModuleCard'
 import KpiCard from '../../components/KpiCard/KpiCard'
@@ -152,24 +153,13 @@ function Home({ onGoToModule, onGoToKpi }) {
       />
 
       <section className="section-block" id="modulos">
-        <div className="section-topbar">
-          <div className="section-heading">
-            <span className="eyebrow">Estrutura do programa</span>
-            <h2>Páginas individuais para cada módulo</h2>
-            <p>
-              Cada card abaixo abre uma página própria, com conteúdo aprofundado
-              para treinamento, alinhamento e aplicação prática com o time.
-            </p>
-          </div>
-
-          <aside className="section-summary-card">
-            <small>Visão rápida</small>
-            <strong>Trilha progressiva para atendimento, processo e retenção</strong>
-            <p>
-              A sequência dos módulos foi organizada para sair de mentalidade,
-              passar por comunicação e operação, e chegar em recuperação com mais segurança.
-            </p>
-          </aside>
+        <div className="section-heading">
+          <span className="eyebrow">Estrutura do programa</span>
+          <h2>Páginas individuais para cada módulo</h2>
+          <p>
+            Cada card abaixo abre uma página própria, com conteúdo aprofundado para treinamento,
+            alinhamento e aplicação prática com o time.
+          </p>
         </div>
 
         <div className="module-grid">
@@ -186,24 +176,13 @@ function Home({ onGoToModule, onGoToKpi }) {
       </section>
 
       <section className="section-block" id="kpis">
-        <div className="section-topbar">
-          <div className="section-heading">
-            <span className="eyebrow">Gestão da operação</span>
-            <h2>Páginas individuais para cada KPI</h2>
-            <p>
-              Cada KPI abre uma página própria com conceito, metas, leitura de
-              gestão e orientação prática para acompanhamento.
-            </p>
-          </div>
-
-          <aside className="section-summary-card section-summary-card-accent">
-            <small>Leitura executiva</small>
-            <strong>Experiência, eficiência e retenção na mesma navegação</strong>
-            <p>
-              Os indicadores foram distribuídos para facilitar leitura rápida da operação
-              sem perder clareza visual em desktop, tablet ou celular.
-            </p>
-          </aside>
+        <div className="section-heading">
+          <span className="eyebrow">Gestão da operação</span>
+          <h2>Páginas individuais para cada KPI</h2>
+          <p>
+            Cada KPI abre uma página própria com conceito, metas, leitura de gestão e orientação
+            prática para acompanhamento.
+          </p>
         </div>
 
         <div className="kpi-grid">

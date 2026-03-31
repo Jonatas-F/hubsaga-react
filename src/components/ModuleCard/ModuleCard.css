@@ -1,21 +1,24 @@
 .module-card-component {
   position: relative;
   width: 100%;
-  min-height: 100%;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 28px;
+  gap: 30px;
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  padding: 28px;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at top right, rgba(255, 92, 35, 0.12), transparent 40%);
-  backdrop-filter: blur(14px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    linear-gradient(180deg, rgba(11, 14, 22, 0.98), rgba(7, 9, 15, 0.96)),
+    radial-gradient(circle at top right, rgba(255, 92, 35, 0.14), transparent 42%),
+    radial-gradient(circle at bottom left, rgba(57, 98, 255, 0.1), transparent 34%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -30px 60px rgba(255, 255, 255, 0.015);
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
@@ -27,25 +30,52 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 26%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.module-card-component::after {
+  content: '';
+  position: absolute;
+  left: -60px;
+  bottom: -90px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 122, 56, 0.18), transparent 70%);
+  filter: blur(24px);
   opacity: 0.8;
   pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .module-card-component:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 132, 72, 0.4);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+  transform: translateY(-10px);
+  border-color: rgba(255, 132, 72, 0.42);
+  box-shadow:
+    0 28px 56px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 122, 56, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.module-card-component:hover::after {
+  opacity: 1;
+  transform: scale(1.06);
 }
 
 .module-card-component:hover .module-card-top i {
-  transform: translate(2px, -2px) rotate(6deg);
-  background: rgba(255, 122, 56, 0.16);
-  border-color: rgba(255, 132, 72, 0.4);
+  transform: translate(3px, -3px) rotate(8deg);
+  background:
+    linear-gradient(180deg, rgba(255, 122, 56, 0.2), rgba(255, 122, 56, 0.08));
+  border-color: rgba(255, 132, 72, 0.42);
+  box-shadow: 0 10px 24px rgba(255, 92, 35, 0.16);
 }
 
 .module-card-component:focus-visible {
-  outline: 2px solid rgba(255, 132, 72, 0.9);
+  outline: 2px solid rgba(255, 132, 72, 0.95);
   outline-offset: 4px;
 }
 
@@ -61,24 +91,37 @@
 
 .module-card-top span {
   display: inline-flex;
-  color: #ff7a38;
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 122, 56, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 122, 56, 0.08);
+  color: #ff8b55;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .module-card-top i {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
   font-style: normal;
+  font-size: 1rem;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.04);
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .module-card-content {
@@ -87,31 +130,40 @@
 }
 
 .module-card-component h3 {
-  margin: 0 0 14px;
-  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
-  line-height: 1.15;
+  margin: 0 0 16px;
+  max-width: 14ch;
+  font-size: clamp(1.38rem, 2vw, 1.78rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
   color: #ffffff;
 }
 
 .module-card-component p {
   margin: 0;
-  max-width: 38ch;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.72);
+  max-width: none;
+  font-size: 0.98rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .module-card-footer {
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .module-card-component strong {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #ff8b55;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 122, 56, 0.18);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 122, 56, 0.14), rgba(255, 122, 56, 0.08));
+  color: #ff9a6b;
   font-size: 0.92rem;
   font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .module-card-component strong::after {
@@ -134,14 +186,20 @@
 
 @media (max-width: 820px) {
   .module-card-component {
-    gap: 22px;
+    min-height: auto;
+    gap: 24px;
     padding: 22px;
-    border-radius: 22px;
+    border-radius: 24px;
+  }
+
+  .module-card-component h3 {
+    max-width: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .module-card-component,
+  .module-card-component::after,
   .module-card-top i,
   .module-card-component strong::after {
     transition: none;

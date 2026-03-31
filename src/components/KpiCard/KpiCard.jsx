@@ -10,20 +10,23 @@ function KpiCard({
   onClick,
 }) {
   return (
-    <button type="button" className="kpi-card-component button-reset" onClick={onClick}>
+    <button type="button" className="kpi-card-component" onClick={onClick}>
       <div className="kpi-card-top">
-        <small>{eyebrow}</small>
-        <i aria-hidden="true">◎</i>
+        <small className="kpi-card-eyebrow">{eyebrow}</small>
+
+        <span className="kpi-card-icon" aria-hidden="true">
+          ↗
+        </span>
       </div>
 
       <div className="kpi-card-content">
         <h3>{title}</h3>
-        <strong>{subtitle}</strong>
+        <strong className="kpi-card-subtitle">{subtitle}</strong>
         <p>{text}</p>
       </div>
 
       <div className="kpi-card-footer">
-        <span>{cta}</span>
+        <span className="kpi-card-cta">{cta}</span>
       </div>
     </button>
   )

@@ -1,21 +1,24 @@
 .kpi-card-component {
   position: relative;
   width: 100%;
-  min-height: 100%;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
+  gap: 26px;
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  padding: 26px;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at top right, rgba(255, 92, 35, 0.12), transparent 40%);
-  backdrop-filter: blur(14px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    linear-gradient(180deg, rgba(11, 14, 22, 0.98), rgba(7, 9, 15, 0.96)),
+    radial-gradient(circle at top right, rgba(53, 92, 255, 0.16), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(255, 92, 35, 0.1), transparent 34%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -30px 60px rgba(255, 255, 255, 0.015);
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
@@ -27,24 +30,52 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), transparent 38%);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 26%);
   pointer-events: none;
+  opacity: 0.9;
+}
+
+.kpi-card-component::after {
+  content: '';
+  position: absolute;
+  right: -50px;
+  top: -70px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 116, 255, 0.16), transparent 72%);
+  filter: blur(24px);
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .kpi-card-component:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 132, 72, 0.4);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+  transform: translateY(-10px);
+  border-color: rgba(109, 136, 255, 0.36);
+  box-shadow:
+    0 28px 56px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(79, 116, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.kpi-card-component:hover::after {
+  opacity: 1;
+  transform: scale(1.06);
 }
 
 .kpi-card-component:hover .kpi-card-top i {
   transform: scale(1.08) rotate(10deg);
-  background: rgba(255, 122, 56, 0.16);
-  border-color: rgba(255, 132, 72, 0.4);
+  background:
+    linear-gradient(180deg, rgba(79, 116, 255, 0.22), rgba(79, 116, 255, 0.1));
+  border-color: rgba(109, 136, 255, 0.42);
+  box-shadow: 0 10px 24px rgba(79, 116, 255, 0.16);
 }
 
 .kpi-card-component:focus-visible {
-  outline: 2px solid rgba(255, 132, 72, 0.9);
+  outline: 2px solid rgba(109, 136, 255, 0.95);
   outline-offset: 4px;
 }
 
@@ -59,25 +90,38 @@
 }
 
 .kpi-card-top small {
-  display: block;
-  font-size: 0.76rem;
-  letter-spacing: 0.18em;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .kpi-card-top i {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
   font-style: normal;
+  font-size: 0.98rem;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.04);
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .kpi-card-content {
@@ -86,38 +130,47 @@
 }
 
 .kpi-card-component h3 {
-  margin: 0 0 12px;
-  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
-  line-height: 1.15;
+  margin: 0 0 10px;
+  font-size: clamp(1.32rem, 1.9vw, 1.72rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   color: #ffffff;
 }
 
 .kpi-card-component strong {
   display: inline-flex;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-size: 0.98rem;
-  color: #ffffff;
+  font-weight: 700;
+  color: #cdd8ff;
 }
 
 .kpi-card-component p {
   margin: 0;
-  max-width: 38ch;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.72);
+  max-width: none;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .kpi-card-footer {
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .kpi-card-component span {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #ff8b55;
+  padding: 12px 16px;
+  border: 1px solid rgba(109, 136, 255, 0.18);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(79, 116, 255, 0.14), rgba(79, 116, 255, 0.08));
+  color: #d6e0ff;
   font-size: 0.92rem;
   font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .kpi-card-component span::after {
@@ -140,14 +193,16 @@
 
 @media (max-width: 820px) {
   .kpi-card-component {
-    gap: 20px;
+    min-height: auto;
+    gap: 22px;
     padding: 22px;
-    border-radius: 22px;
+    border-radius: 24px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .kpi-card-component,
+  .kpi-card-component::after,
   .kpi-card-top i,
   .kpi-card-component span::after {
     transition: none;
